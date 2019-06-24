@@ -31,3 +31,32 @@
 4)维护HLog
 
 5)执行压缩
+
+6)负责处理 Region 分片
+
+### 组件：
+
+1) Write-Ahead logs
+
+HBase 的修改记录，当对 HBase 读写数据的时候，数据不是直接写进磁盘，它会在内存中
+保留一段时间（时间以及数据量阈值可以设定）。但把数据保存在内存中可能有更高的概率
+引起数据丢失，为了解决这个问题，数据会先写在一个叫做 Write-Ahead logfile 的文件中，
+然后再写入内存中。所以在系统出现故障的时候，数据可以通过这个日志文件重建。
+
+2) HFile
+
+这是在磁盘上保存原始数据的实际的物理文件，是实际的存储文件。
+
+3) Store
+
+HFile 存储在 Store 中，一个 Store 对应 HBase 表中的一个列族。
+
+4) MemStore
+
+顾名思义，就是内存存储，位于内存中，用来保存当前的数据操作，所以当数据保存在 WAL
+中之后， RegsionServer 会在内存中存储键值对。
+
+5) Region
+
+Hbase 表的分片，HBase 表会根据 RowKey 值被切分成不同的 region 存储在 RegionServer 中，
+在一个 RegionServer 中可以有多个不同的 region。
