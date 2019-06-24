@@ -36,6 +36,8 @@
 
 ### 组件：
 
+![](https://github.com/gaoyuanyuan2/big-data/blob/master/img/1.jpg)
+
 1) Write-Ahead logs
 
 HBase 的修改记录，当对 HBase 读写数据的时候，数据不是直接写进磁盘，它会在内存中
