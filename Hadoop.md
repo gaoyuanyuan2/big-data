@@ -133,9 +133,7 @@ Mapper  Shuffle  Reducer
 
 1. Combine本质 上是在Mapper缓冲区溢写文件的合并。
 
-2 . Partition是在Reduce输入之前发生 ,相同的key值一定会进入同一 -个
-
-Partitioner , Reduce过程会按照key排序。
+2 . Partition是在Reduce输入之前发生 ,相同的key值一定会进入同一个Partitioner , Reduce过程会按照key排序。
 
 3. Partitioner、 Reducer、 输出文件三者数量是相等的。
 
