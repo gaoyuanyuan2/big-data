@@ -69,9 +69,32 @@ Apache Solr
 
 3、Index索引，聚合检索。
 
-4、Analyzer分 词器，如IKAnalyzer、 word分词、Ansj、 Stanford等5、大数据搜索引擎解决方案原理
+4、Analyzer分词器，如IKAnalyzer、 word分词、Ansj、 Stanford等
 
-6、NoSQL的兴起( Redis、MongoDB、 Memecache )
+5、大数据搜索引擎解决方案原理
+
+6、NoSQL的兴起(Redis、MongoDB、 Memecache)
 
 
 ![](https://github.com/gaoyuanyuan2/big-data/blob/master/img/12.png)
+
+
+Lucene基本架构,基本解决方案
+
+正则substring                                      NO SQL
+
+Document行( Row )文本 —> 表记录行                  Redis
+
+Index索引(数据关键值) —> 提高查询效率               MongoDB
+
+Analyzer分词器(打标签) —> 提高精准度                MemeCache  Hadoop HBase
+
+
+
+
+
+
+
+
+
+
