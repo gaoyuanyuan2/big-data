@@ -76,7 +76,21 @@ Apache Solr
 6、NoSQL的兴起(Redis、MongoDB、 Memecache)
 
 
-![](https://github.com/gaoyuanyuan2/big-data/blob/master/img/12.png)
+
+## GEO Hash的基本原理
+
+基本原理:
+
+1、首先把地图按赤道和0经度线划成4块,左上、右上、左下、右下的Hash code分别是二进制00、01、10、 11, 然后把每块继续四等分，小块的Hash code就是上一级的Hash code加上本级的这两个二进制位，继续等分下去，你就可以得到不同范围不同位置的很多个Hash code。
+
+2、每一级Hash code都对应了一个块的大小，这个尺寸可以用来做粗过滤3、把地图上需要索引的点按所属的块的Hash code做索引。
+
+需要注意的地方:
+
+1、GeoHash是 按照经纬度范围生成的，不是实际距离，所以针对不同纬度下的点要做一些修正。
+
+2、由于维度在两极会回绕，所以对于南北极点附近的点，基本上你就要做一一个全表扫描了 ，对于日界线附近的点情况也类似，当然除非你做地理学术方面的应用，这种情况基本可以忽略。
+
 
 
 Lucene基本架构,基本解决方案
@@ -89,9 +103,14 @@ Index索引(数据关键值) —> 提高查询效率               MongoDB
 
 Analyzer分词器(打标签) —> 提高精准度                MemeCache  Hadoop HBase
 
+![](https://github.com/gaoyuanyuan2/big-data/blob/master/img/13.png)
+
+![](https://github.com/gaoyuanyuan2/big-data/blob/master/img/14.png)
 
 
 
+
+![](https://github.com/gaoyuanyuan2/big-data/blob/master/img/12.png)
 
 
 
